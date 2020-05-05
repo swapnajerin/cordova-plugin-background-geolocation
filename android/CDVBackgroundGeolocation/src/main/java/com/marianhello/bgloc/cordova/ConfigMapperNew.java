@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by finch on 29.11.2017.
  */
 
-public class ConfigMapper {
+public class ConfigMapperNew {
     public static Config fromJSONObject (JSONObject jObject) throws JSONException {
         Config config = new Config();
 
