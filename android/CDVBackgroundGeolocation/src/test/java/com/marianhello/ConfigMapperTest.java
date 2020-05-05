@@ -1,7 +1,7 @@
 package com.marianhello;
 
 import com.marianhello.bgloc.Config;
-import com.marianhello.bgloc.cordova.ConfigMapper;
+import com.marianhello.bgloc.cordova.ConfigMapperNew;
 import com.marianhello.bgloc.data.ArrayListLocationTemplate;
 import com.marianhello.bgloc.data.HashMapLocationTemplate;
 import com.marianhello.bgloc.data.LocationTemplate;
@@ -27,7 +27,7 @@ public class ConfigMapperTest {
     @Test
     public void testDefaultToJSONObject() throws JSONException {
         Config config = Config.getDefault();
-        JSONObject jConfig = ConfigMapper.toJSONObject(config);
+        JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
         Assert.assertEquals(config.getStationaryRadius(), jConfig.getDouble("stationaryRadius"), 0f);
         Assert.assertEquals(config.getDistanceFilter().intValue(), jConfig.getInt("distanceFilter"));
         Assert.assertEquals(config.getDesiredAccuracy().intValue(), jConfig.getInt("desiredAccuracy"));
@@ -64,7 +64,7 @@ public class ConfigMapperTest {
         json.put("notificationIconLarge", JSONObject.NULL);
         json.put("notificationIconSmall", JSONObject.NULL);
 
-        Config config = ConfigMapper.fromJSONObject(json);
+        Config config = ConfigMapperNew.fromJSONObject(json);
 
         Assert.assertEquals(Config.NullString, config.getUrl());
         Assert.assertTrue(config.hasUrl());
@@ -101,7 +101,7 @@ public class ConfigMapperTest {
         config.setLargeNotificationIcon(Config.NullString);
         config.setSmallNotificationIcon(Config.NullString);
 
-        JSONObject json = ConfigMapper.toJSONObject(config);
+        JSONObject json = ConfigMapperNew.toJSONObject(config);
 
         Assert.assertEquals(JSONObject.NULL, json.get("url"));
         Assert.assertEquals(JSONObject.NULL, json.get("syncUrl"));
@@ -134,7 +134,7 @@ public class ConfigMapperTest {
         config.setTemplate(tpl);
 
         try {
-            JSONObject jConfig = ConfigMapper.toJSONObject(config);
+            JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
             Assert.assertEquals("{}", jConfig.get("postTemplate").toString());
         } catch (JSONException e) {
             Assert.fail(e.getMessage());
@@ -151,7 +151,7 @@ public class ConfigMapperTest {
         config.setTemplate(tpl);
 
         try {
-            JSONObject jConfig = ConfigMapper.toJSONObject(config);
+            JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
             Assert.assertEquals("{\"foo\":\"bar\",\"pretzels\":123}", jConfig.get("postTemplate").toString());
         } catch (JSONException e) {
             Assert.fail(e.getMessage());
@@ -165,7 +165,7 @@ public class ConfigMapperTest {
         config.setTemplate(tpl);
 
         try {
-            JSONObject jConfig = ConfigMapper.toJSONObject(config);
+            JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
             Assert.assertEquals(JSONObject.NULL, jConfig.get("postTemplate"));
         } catch (JSONException e) {
             Assert.fail(e.getMessage());
@@ -180,7 +180,7 @@ public class ConfigMapperTest {
         config.setTemplate(tpl);
 
         try {
-            JSONObject jConfig = ConfigMapper.toJSONObject(config);
+            JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
             Assert.assertEquals("[]", jConfig.get("postTemplate").toString());
         } catch (JSONException e) {
             Assert.fail(e.getMessage());
@@ -199,7 +199,7 @@ public class ConfigMapperTest {
         config.setTemplate(tpl);
 
         try {
-            JSONObject jConfig = ConfigMapper.toJSONObject(config);
+            JSONObject jConfig = ConfigMapperNew.toJSONObject(config);
             Assert.assertEquals("[\"foo\",123,\"foo\"]", jConfig.get("postTemplate").toString());
         } catch (JSONException e) {
             Assert.fail(e.getMessage());
