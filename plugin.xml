@@ -48,7 +48,7 @@
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/evgenii/jsevaluator/JsEvaluator.java" target-dir="src/com/evgenii/jsevaluator" />
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/evgenii/jsevaluator/JsFunctionCallFormatter.java" target-dir="src/com/evgenii/jsevaluator" />
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/evgenii/jsevaluator/WebViewWrapper.java" target-dir="src/com/evgenii/jsevaluator" />
-        <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/marianhello/bgloc/cordova/ConfigMapper.java" target-dir="src/com/marianhello/bgloc/cordova" />
+        <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/marianhello/bgloc/cordova/ConfigMapperNew.java" target-dir="src/com/marianhello/bgloc/cordova" />
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/marianhello/bgloc/cordova/headless/JsEvaluatorTaskRunner.java" target-dir="src/com/marianhello/bgloc/cordova/headless" />
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/marianhello/bgloc/cordova/PluginRegistry.java" target-dir="src/com/marianhello/bgloc/cordova" />
         <source-file src="android/CDVBackgroundGeolocation/src/main/java/com/tenforwardconsulting/bgloc/cordova/BackgroundGeolocationPlugin.java" target-dir="src/com/tenforwardconsulting/bgloc/cordova" />
