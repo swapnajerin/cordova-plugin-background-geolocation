@@ -19,7 +19,7 @@ import com.marianhello.bgloc.BackgroundGeolocationFacade;
 import com.marianhello.bgloc.Config;
 import com.marianhello.bgloc.PluginDelegate;
 import com.marianhello.bgloc.PluginException;
-import com.marianhello.bgloc.cordova.ConfigMapper;
+import com.marianhello.bgloc.cordova.ConfigMapperNew;
 import com.marianhello.bgloc.cordova.PluginRegistry;
 import com.marianhello.bgloc.cordova.headless.JsEvaluatorTaskRunner;
 import com.marianhello.bgloc.data.BackgroundActivity;
@@ -175,7 +175,7 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin implements Plugin
             runOnWebViewThread(new Runnable() {
                 public void run() {
                     try {
-                        Config config = ConfigMapper.fromJSONObject(data.getJSONObject(0));
+                        Config config = ConfigMapperNew.fromJSONObject(data.getJSONObject(0));
                         facade.configure(config);
                         callbackContext.success();
                     } catch (JSONException e) {
@@ -295,7 +295,7 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin implements Plugin
                 public void run() {
                     try {
                         Config config = facade.getConfig();
-                        callbackContext.success(ConfigMapper.toJSONObject(config));
+                        callbackContext.success(ConfigMapperNew.toJSONObject(config));
                     } catch (JSONException e) {
                         callbackContext.sendPluginResult(ErrorPluginResult.from("Error getting config", e, PluginException.JSON_ERROR));
                     }
